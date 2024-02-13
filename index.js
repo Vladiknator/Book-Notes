@@ -5,11 +5,20 @@ import axios from 'axios';
 
 const app = express();
 const port = 3000;
+const hostname = '192.168.3.176';
+
+app.set('view engine', 'ejs');
+
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.render('index');
 });
 
-app.listen(port, () => {
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
+app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);
 });

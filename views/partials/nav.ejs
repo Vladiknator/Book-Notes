@@ -1,0 +1,26 @@
+<header class="navbar navbar-expand-lg bd-navbar sticky-top bg-body-tertiary px-3">
+  <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+    <span class="navbar-brand h1 mb-0">Book Notes</span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link <%= (page == 'root') ? 'active' : '' %>" <%= (page == 'root') ? 'aria-current="page"' : '' %> href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= (page == 'about') ? 'active' : '' %>" <%= (page == 'about') ? 'aria-current="page"' : '' %> href="/about">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
