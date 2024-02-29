@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="/public/css/new.css" rel="stylesheet" />
+</head>
+
+<body>
+  <%- include('partials/nav', {page : 'new'}); %>
+  <div class="container bg-body-secondary mt-3 p-lg-4 py-3 rounded-5">
+    <div class="container-flex p-3 m-2 bg-body-tertiary rounded-3">
+      <form class="row g-3" method="post" action="/new" name="newForm" autocomplete="off">
+        <div class="dropdown col-12">
+          <div class="mb-3">
+            <label for="searchBar" class="form-label">Search</label>
+            <input type="search" class="form-control" id="searchBar" autocomplete="off" aria-describedby="searchHelp">
+            <div id="searchDropDown" class="dropdown-content">
+              <div class="container-flex rounded-3 bg-dark justify-content-center" id="loading">
+                <div class="spinner-border m-3" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+              <div class="container-flex rounded-3 bg-dark" id="dropDownCont">
+              </div>
+            </div>
+            <div id="searchHelp" class="form-text">Start Typing to Search</div>
+          </div>
+        </div>
+        <div class="col-12 visually-hidden">
+          <label for="cover" class="ms-1 mb-2">Cover: </label>
+          <img id="cover" src="" alt="Cover for selected work" class="img-fluid img-thumbnail d-block">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="title" class="ms-1 mb-2">Title: </label>
+          <input type="text" id="title" name="title" class="form-control" placeholder="Title">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="author" class="ms-1 mb-2">Author: </label>
+          <input type="text" id="author" name="author" class="form-control" placeholder="Author">
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="oLId" class="ms-1 mb-2">Open Library ID: </label>
+          <input type="text" id="oLId" name="oLId" class="form-control" placeholder="Open Library ID">
+        </div>
+        <div class="col-12">
+          <label for="desc" class="ms-1 mb-2">Description: </label>
+          <textarea id="desc" name="desc" class="form-control" placeholder="Description" rows="6"></textarea>
+        </div>
+
+        <div class="col-12 m-4"></div>
+
+        <div class="col-12">
+          <label for="stars" class="ms-1 mb-2 d-block">Rating:</label>
+          <div class="star-wrapper" id="stars">
+
+            <label for="star1" class="fas fa-star" id="s1" onmouseenter="updateStars(1)" onmouseleave="resetStars()"></label>
+            <input type="radio" name="stars" id="star1" value="1" onchange="updateStars(1)">
+
+            <label for="star2" class="fas fa-star" id="s2" onmouseenter="updateStars(2)" onmouseleave="resetStars()"></label>
+            <input type="radio" name="stars" id="star2" value="2" onchange="updateStars(2)">
+
+            <label for="star3" class="fas fa-star" id="s3" onmouseenter="updateStars(3)" onmouseleave="resetStars()"></label>
+            <input type="radio" name="stars" id="star3" value="3" onchange="updateStars(3)">
+
+            <label for="star4" class="fas fa-star" id="s4" onmouseenter="updateStars(4)" onmouseleave="resetStars()"></label>
+            <input type="radio" name="stars" id="star4" value="4" onchange="updateStars(4)">
+
+            <label for="star5" class="fas fa-star" id="s5" onmouseenter="updateStars(5)" onmouseleave="resetStars()"></label>
+            <input type="radio" name="stars" id="star5" value="5" onchange="updateStars(5)">
+
+            <label for="star0" class="btn btn-secondary" id="reset">Reset</label>
+            <input type="radio" name="stars" id="star0" value="0" onchange="updateStars(0)" checked>
+
+          </div>
+          <script src="https://kit.fontawesome.com/5ea815c1d0.js"></script>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="sDate" class="ms-1 mb-2">Start Date: </label>
+          <input type="date" id="sDate" name="sDate" class="form-control" placeholder="Start Date">
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="fDate" class="ms-1 mb-2">Finished Date: </label>
+          <input type="date" id="fDate" name="fDate" class="form-control" placeholder="Finish Date">
+        </div>
+
+        <div class="col-12">
+          <label for="notes" class="ms-1 mb-2">Notes: </label>
+          <textarea id="notes" name="notes" class="form-control" placeholder="Notes" rows="6"></textarea>
+        </div>
+
+        <div class="col-12 col-md-2 col-xl-1">
+          <button type="submit" class="btn btn-primary form-control">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="/public/javascript/search.js"></script>
+  <script src="/public/javascript/stars.js"></script>
+</body>
+
+</html>

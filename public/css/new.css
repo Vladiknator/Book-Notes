@@ -1,0 +1,54 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+#loading {
+  display: none;
+}
+
+.showLoading {
+  display: flex !important;
+}
+
+.show {
+  display: block;
+}
+
+.star-wrapper {
+  float: left;
+  display: flex;
+}
+
+.star-wrapper input {
+  display: none;
+}
+
+.star-wrapper label:not(#reset) {
+  font-size: 1.5em;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.5s;
+  margin: 4px;
+  cursor: pointer;
+}
+.star-wrapper label:not(#reset):hover {
+  color: gold;
+  transform: scale(1.3);
+}
+
+.star-gold {
+  color: gold !important;
+}
+
+#reset {
+  padding-top: 0.1rem;
+  margin-left: 1rem;
+  padding-bottom: 0;
+}
